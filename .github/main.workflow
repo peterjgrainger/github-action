@@ -1,6 +1,6 @@
 workflow "Run Danger" {
-  on = "push"
   resolves = ["docker://petergrainger/danger-action"]
+  on = "pull_request"
 }
 
 action "docker://petergrainger/danger-action" {
