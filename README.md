@@ -1,17 +1,19 @@
 # Danger Github Action
 
+Run danger as a github action.  All arguments passed to the action will be passed directly to `danger`
+
 ## Usage
 
-Add file `main.workflow` to folder `.github`
+Add file `main.workflow` to folder `.github`.  The workflow trigger **must** be `pull_request`
 
 ```bash
-workflow "Run Danger" {
-  on = "push"
-  resolves = ["docker://petergrainger/danger-action"]
+workflow "Test Action Works" {
+  on = "pull_request"
+  resolves = ["Run Danger"]
 }
 
-action "docker://petergrainger/danger-action" {
-  uses = "docker://petergrainger/danger-action"
+action "Run Danger" {
+  uses = "danger/github-action@master"
   secrets = ["GITHUB_TOKEN"]
 }
 ```

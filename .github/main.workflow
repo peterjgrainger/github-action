@@ -1,9 +1,9 @@
-workflow "Run Danger" {
+workflow "Test Action Works" {
   on = "pull_request"
-  resolves = ["docker://petergrainger/danger-action"]
+  resolves = ["Run Danger"]
 }
 
-action "docker://petergrainger/danger-action" {
+action "Run Danger" {
   uses = "danger/github-action@master"
   secrets = ["GITHUB_TOKEN"]
 }
