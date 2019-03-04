@@ -1,1 +1,3 @@
-# github-action
+# Danger Github Action
+
+## Usage
